@@ -1,5 +1,5 @@
 {
-    "name": "Player_Movement",
+    "name": "PlayerMovement",
     "maps": [
         {
             "name": "Player",
@@ -48,6 +48,34 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "faee2112-3373-4711-9605-c0fa02ec9641",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "50aa758a-0b98-4fe9-9917-b8c2a225469a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "675953c6-fded-4550-87ac-8c3552a9fc59",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
