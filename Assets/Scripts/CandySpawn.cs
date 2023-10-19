@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CandySpawn : MonoBehaviour
@@ -20,12 +21,17 @@ public class CandySpawn : MonoBehaviour
 
     void Update()
     {
-        
+        /*
+        for(int i = 1; i <= 15; i++)
+        {
+            Spawn();
+        }
+        UnityEditor.EditorApplication.isPlaying = false;*/
     }
 
     public void Spawn()
     {
-        _time = Random.Range(1, 4);
+        //_time = Random.Range(1, 4);
         Rigidbody2D rbCandy = Instantiate(candy, candyPos.position, Quaternion.identity).GetComponent<Rigidbody2D>();
     }
 }
