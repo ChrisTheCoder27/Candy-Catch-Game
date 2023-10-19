@@ -6,8 +6,8 @@ using UnityEngine;
 public class CandySpawn : MonoBehaviour
 {
     Rigidbody2D _rb;
-    public GameObject candy;
-    public Transform candyPos;
+    public GameObject[] candies;
+    private Vector3 candyPos;
     private int _time;
 
     public string nameCandy;
@@ -16,13 +16,12 @@ public class CandySpawn : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        //candy = GameObject.Find("Candy (1)");
     }
 
     void Update()
     {
-        /*
-        for(int i = 1; i <= 15; i++)
+
+        /*for(int i = 1; i <= 15; i++)
         {
             Spawn();
         }
@@ -31,7 +30,10 @@ public class CandySpawn : MonoBehaviour
 
     public void Spawn()
     {
-        //_time = Random.Range(1, 4);
-        Rigidbody2D rbCandy = Instantiate(candy, candyPos.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        _time = Random.Range(1, 4);
+        // Chooses random x position of the candy that will be dropped and sets y position to be 7.0, the top of the screen
+        int num = Random.Range(0,6);
+        candyPos = new Vector3(Random.Range(-13, 14),7,0);
+        Rigidbody2D rbCandy = Instantiate(candies[num], candyPos, Quaternion.identity).GetComponent<Rigidbody2D>();
     }
 }
