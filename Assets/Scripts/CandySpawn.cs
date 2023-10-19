@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class CandySpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D _rb;
+    public GameObject candy;
+    public Transform candyPos;
+    private int _time;
+
+    public string nameCandy;
+    public int score;
+
     void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        //candy = GameObject.Find("Candy (1)");
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn()
     {
-        
+        _time = Random.Range(1, 4);
+        Rigidbody2D rbCandy = Instantiate(candy, candyPos.position, Quaternion.identity).GetComponent<Rigidbody2D>();
     }
 }
