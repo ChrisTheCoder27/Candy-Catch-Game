@@ -16,24 +16,31 @@ public class CandySpawn : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(Time_Between_Candy());
     }
 
     void Update()
     {
 
-        /*for(int i = 1; i <= 15; i++)
+        for(int i = 1; i <= 15; i++)
         {
             Spawn();
         }
-        UnityEditor.EditorApplication.isPlaying = false;*/
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void Spawn()
     {
-        _time = Random.Range(1, 4);
         // Chooses random x position of the candy that will be dropped and sets y position to be 7.0, the top of the screen
-        int num = Random.Range(0,6);
-        candyPos = new Vector3(Random.Range(-13, 14),7,0);
+        int num = Random.Range(0, 6);
+        candyPos = new Vector3(Random.Range(-13, 14), 7, 0);
         Rigidbody2D rbCandy = Instantiate(candies[num], candyPos, Quaternion.identity).GetComponent<Rigidbody2D>();
+    }
+
+    IEnumerator Time_Between_Candy()
+    {
+        _time = Random.Range(1, 4);
+        yield return new WaitForSeconds(_time);
+        Spawn();
     }
 }
